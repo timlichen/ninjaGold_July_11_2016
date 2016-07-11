@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ninja Gold</title>
+</head>
+<body>
+  <h1>Muh Goldz: {{ session['gold'] }}</h1>
+  <form action="/process_money" method="Post">
+    <p>
+      Farm 10 - 20 GOLD
+      <input type="submit" name="building" value="farm">
+    </p>
+    <p>
+      Cave 5 - 10 GOLD
+      <input type="submit" name="building" value="cave">
+    </p>
+    <p>
+      House 2 - 5 GOLD
+      <input type="submit" name="building" value="house">
+    </p>
+    <p>
+      Casino Earn/Lose 0 - 50 GOLD
+      <input type="submit" name="building" value="casino">
+    </p>
+    <input type="submit" name="building" value="reset">
+  </form>
+  {% for index in range(session['messages']|length, -1, -1) %}
+    <p>{{session['messages'][index]}}</p>
+  {% endfor %}
+</body>
+</html>
